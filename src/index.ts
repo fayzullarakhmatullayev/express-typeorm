@@ -1,10 +1,10 @@
 import app from "./app";
+import { PORT } from "./config";
 import { AppDataSource } from "./data-source";
+import { User } from "./entity/User";
 
 AppDataSource.initialize()
   .then(async () => {
-    const PORT = process.env.PORT || 8080;
-
     app.listen(PORT, () => {
       console.log(`Express server has started on http://localhost:${PORT}`);
     });
