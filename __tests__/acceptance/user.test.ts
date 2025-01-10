@@ -8,6 +8,7 @@ const testUser = { firstName: "John", lastName: "Doe", age: 30 };
 
 beforeEach(async () => {
   connection = await AppDataSource.initialize();
+  // ! Caution! This will drop all tables
   await connection.synchronize(true);
 
   server = app.listen(PORT);
