@@ -24,7 +24,7 @@ export const Routes = [
     validation: [
       body("firstName").isString(),
       body("lastName").isString(),
-      body("age").isInt()
+      body("age").isInt({ min: 0 })
     ]
   },
   {
@@ -32,6 +32,6 @@ export const Routes = [
     route: "/users/:id",
     controller: UserController,
     action: "remove",
-    validation: []
+    validation: [param("id").isInt()]
   }
 ];
